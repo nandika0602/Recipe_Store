@@ -12,16 +12,16 @@ const ListingPage = (props) => {
   // const val = useRef('');
 
   // const value = () => {
-  //   console.log(val.current);
-  //   if (val.current) {
-  //     console.log(val.current.value, val);
-  //     const vall = val.current.value;
-  //     console.log(vall);
-  //   }
+    // console.log("Val_1", val);
+    // if (val.current) {
+    //   console.log(val.current.value, val);
+    //   const vall = val.current.value;
+    //   console.log(vall);
+    // }
   // };
 
   useEffect(() => {
-     dispatch(getApiAction());
+    dispatch(getApiAction());
   }, []);
 
   return (
@@ -34,14 +34,14 @@ const ListingPage = (props) => {
           marginTop: "30px",
         }}
       >
-        {/* <TextField
-              ref={val}
-              id="standard-basic"
-              label="Search..."
-              sx={{ width: "300px" }}
-              variant="standard"
-              onChange={value}
-            /> */}
+        {/* <input
+          ref={val}
+          id="standard-basic"
+          label="Search..."
+          sx={{ width: "300px" }}
+          variant="standard"
+          onChange={value}
+        /> */}
         {/* <TextField id="outlined-basic" label="Outlined" variant="outlined" /> */}
 
         <TextField

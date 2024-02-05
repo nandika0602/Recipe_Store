@@ -105,12 +105,13 @@ code {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  /* margin-left: 20px; */
   /* max-width: 100vw; */
   /* overflow-x: hidden; */
 }
 
 .items {
-  /* margin-right: 30px; */
+  margin-left: 1px;
   display: inline-block;
   /* margin-top: 50px; */
   height: 540px;
