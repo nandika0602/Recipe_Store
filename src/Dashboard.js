@@ -23,7 +23,7 @@ function Dashboard(props) {
 
   const { getApi, data, isLoading, error, cartCount } = props;
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: "100%", position: "fixed", zIndex: "2", top: "0" }}>
       <AppBar position="static" sx={{ backgroundColor: "white" }}>
         <Toolbar>
           <IconButton

@@ -12,12 +12,12 @@ const ListingPage = (props) => {
   // const val = useRef('');
 
   // const value = () => {
-    // console.log("Val_1", val);
-    // if (val.current) {
-    //   console.log(val.current.value, val);
-    //   const vall = val.current.value;
-    //   console.log(vall);
-    // }
+  // console.log("Val_1", val);
+  // if (val.current) {
+  //   console.log(val.current.value, val);
+  //   const vall = val.current.value;
+  //   console.log(vall);
+  // }
   // };
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const ListingPage = (props) => {
           height: "60px",
           display: "flex",
           justifyContent: "center",
-          marginTop: "30px",
+          marginTop: "100px",
         }}
       >
         {/* <input
