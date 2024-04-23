@@ -11,24 +11,30 @@ import { Link, useLocation } from "react-router-dom";
 
 const ItemDetail = ({ detail }) => {
   const [show, setShow] = useState(false);
+  const [showIns, setShowIns] = useState(false);
   const pathname = useLocation();
   const detail1 = pathname?.state?.detail;
 
   const toggleCard = (type) => {
     if (type === "ing") {
-      setShow(type);
+      setShow(!show);
     }
     if (type === "ins") {
-      setShow(type);
+      setShowIns(!showIns);
     }
   };
   if (detail1) detail = detail1;
   return (
     <>
-      <div className="item_details">
+      <div className="item_details" style={{maxHeight: "85vh",}}>
         <Card
           sx={{
-            height: "500px",
+            minHeight: "620px",
+            // padding: "20px"
+            display:"flex",
+            flexDirection:"column",
+            justifyContent:"center"
+
           }}
         >
           <CardMedia
@@ -61,9 +67,9 @@ const ItemDetail = ({ detail }) => {
             </Link>
           </CardContent>
         </Card>
-        <div>
+        <div style={{overflowY: "scroll"}}>
           <Card
-            sx={{ padding: "20px", marginBottom: "30px" }}
+            sx={{ padding: "20px", marginBottom: "30px", minWidth: "50vw",  }}
             onClick={() => toggleCard("ing")}
           >
             <h1
@@ -75,7 +81,7 @@ const ItemDetail = ({ detail }) => {
             </h1>
             {detail?.ingredients?.map((ing, i) => {
               return (
-                show === "ing" && (
+                show === true && (
                   <Typography key={i}>
                     {i + 1}. {ing}{" "}
                   </Typography>
@@ -90,7 +96,7 @@ const ItemDetail = ({ detail }) => {
             <h1>{"instructions".toUpperCase()}</h1>
             {detail?.instructions?.map((e, i) => {
               return (
-                show === "ins" && (
+                showIns === true && (
                   <Typography key={i}>
                     {i + 1}. {e}
                   </Typography>

@@ -94,7 +94,7 @@ function Dashboard(props) {
           </Link>
           {(location.pathname === "/list" ||
             location.pathname === "/cart" ||
-            location.pathname === "/") && (
+            location.pathname === "/" || location.pathname.includes("/dashboard/")) && (
             <Link
               to="/list"
               sx={{
