@@ -1,14 +1,10 @@
-// import Graphy from "./MaterialUI/Graphy";
-// import Button from "./MaterialUI/Button";
-import Login from "./Login";
+import Login from "./Components/Login";
 const App = () => {
   return (
     <div>
-      {/* <Graphy/> */}
-      {/* <Button/> */}
-      <Login/>
+      <Login />
     </div>
-  )
-}
+  );
+};
 
 export default App;

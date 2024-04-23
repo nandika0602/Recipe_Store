@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
-import { getDetailApiAction, addToCart } from "./store/action";
+import { getDetailApiAction, addToCart } from "../store/action";
 import { connect } from "react-redux";
 
 const ItemCard = ({ list, getDetail, addToCart }) => {

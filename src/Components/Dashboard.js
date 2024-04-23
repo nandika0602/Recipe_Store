@@ -9,12 +9,13 @@ import {
   TextField,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-// import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
-import { getApiAction } from "./store/action";
+import { getApiAction } from "../store/action";
 import Items from "./Items";
 import { useRef, useState } from "react";
+import img from "../assets/RecipeImage.png";
+import img2 from "../assets/image.png";
 
 function Dashboard(props) {
   const location = useLocation();
@@ -24,16 +25,23 @@ function Dashboard(props) {
   const { getApi, data, isLoading, error, cartCount } = props;
   return (
     <Box sx={{ width: "100%", position: "fixed", zIndex: "2", top: "0" }}>
-      <AppBar position="static" sx={{ backgroundColor: "white" }}>
+      <AppBar
+        position="static"
+        sx={{
+          // navbar
+          // backgroundColor: "#D3D3D3",
+          backgroundColor: "white",
+        }}
+      >
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             size="large"
             color="black"
             aria-label="menu"
             sx={{ mr: 2, fontSize: "80px" }}
           >
             <MenuIcon sx={{ fontSize: "40px" }} />
-          </IconButton>
+          </IconButton> */}
           <Typography
             variant="h6"
             component="div"
@@ -44,26 +52,25 @@ function Dashboard(props) {
               fontSize: "30px",
             }}
           >
-            RECIPE STORE
+            {/* RECIPE STORE */}
+
+            <img
+              // src={
+              //   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGZuSWJR9ZcAZG6bIzssloajYpeQXWTQBY2rB5rensswAGmQYKCZfFWvN3cnOWhQqzmIY&usqp=CAU"
+              // }
+              src={img2}
+              style={{
+                // borderRadius: "50%",
+                marginTop: "1vh",
+                maxHeight: "80vh",
+                // border: "3px solid brown",
+              }}
+              alt=""
+              height={"80px"}
+              srcset=""
+            />
           </Typography>
-          <Box sx={{ height: "60px", marginRight: "25px" }}>
-            {/* <TextField
-              ref={val}
-              id="standard-basic"
-              label="Search..."
-              sx={{ width: "300px" }}
-              variant="standard"
-              onChange={value}
-            /> */}
-            {/* <TextField
-              value={searchVal}
-              id="standard-basic"
-              label="Search..."
-              sx={{ width: "300px" }}
-              variant="standard"
-              onChange={(e) => setSearchVal(e.target.value)}
-            /> */}
-          </Box>
+          <Box sx={{ height: "60px", marginRight: "25px" }}></Box>
           <Link
             to="/cart"
             sx={{
@@ -76,7 +83,6 @@ function Dashboard(props) {
               badgeContent={cartCount}
               color="error"
               sx={{ marginRight: "8px" }}
-              // max={9}
             >
               <Button
                 variant="outlined"
@@ -85,12 +91,10 @@ function Dashboard(props) {
                 CART
               </Button>
             </Badge>
-            {/* 
-            <IconButton aria-label="cart" >
-                <ShoppingCartIcon   />
-            </IconButton> */}
           </Link>
-          {(location.pathname === "/list" || location.pathname === "/cart") && (
+          {(location.pathname === "/list" ||
+            location.pathname === "/cart" ||
+            location.pathname === "/") && (
             <Link
               to="/list"
               sx={{
@@ -109,7 +113,7 @@ function Dashboard(props) {
             </Link>
           )}
           <Link
-            to="/list"
+            to="/"
             sx={{
               textDecoration: "none",
               underline: "none",

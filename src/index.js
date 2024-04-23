@@ -2,13 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import Body from "./Body";
+import Body from "./Components/Body";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import store from "./store/store";
 import { Provider } from "react-redux";
-import ItemDetail from "./ItemDetail";
-import Cart from "./Cart";
-import ListingPage from "./ListingPage";
+import ItemDetail from "./Components/ItemDetail";
+import Cart from "./Components/Cart";
+import ListingPage from "./Components/ListingPage";
+import AA from "./Components/aa";
 
 const appRouter = createBrowserRouter([
   {
@@ -19,40 +20,32 @@ const appRouter = createBrowserRouter([
     path: "/",
     element: <Body />,
     children: [
-      // {
-      //   path: "/dashboard/:id",
-      //   element: <ItemDetail/>
-      // },
+      {
+        path: "",
+        element: <AA />,
+      },
       {
         path: "cart",
-        element: <Cart/>
+        element: <Cart />,
       },
       {
         path: "list",
-        element: <ListingPage/>
+        element: <ListingPage />,
       },
       {
         path: "/dashboard/:id",
-        element: <ItemDetail/>
+        element: <ItemDetail />,
       },
-    ]
+    ],
   },
-  // {
-  //   path: "/dashboard/:id",
-  //   element: <ItemDetail/>
-  // },
-  // {
-  //   path: "/cart",
-  //   element: <Cart/>
-  // }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-  <React.StrictMode>
-    <RouterProvider router={appRouter} />
-  </React.StrictMode>
+    <React.StrictMode>
+      <RouterProvider router={appRouter} />
+    </React.StrictMode>
   </Provider>
 );
 

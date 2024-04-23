@@ -111,19 +111,3 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps)(ItemDetail);
-
-// const deleteUser = (id) => {
-//     console.log(editKey, id, "delete");
-//     if (editKey !== id) {
-//       const deletedUser = list.filter((l) => l.id !== id);
-//       console.log(deletedUser);
-//       setFList(deletedUser);
-//       setList(deletedUser);
-//       // localStorage.
-//       localStorage.setItem("list", JSON.stringify(deletedUser));
-//       localStorage.setItem("fList", JSON.stringify(deletedUser));
-//     } else {
-//       console.log("You can't delete");
-//       alert("You can't delete this user, as it is in edit mode");
-//     }
-//   };
