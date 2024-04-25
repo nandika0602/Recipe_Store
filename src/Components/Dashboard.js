@@ -1,28 +1,18 @@
-import {
-  AppBar,
-  Box,
-  Toolbar,
-  Typography,
-  Button,
-  IconButton,
-  Badge,
-  TextField,
-} from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
+import { AppBar, Box, Toolbar, Typography, Button, Badge } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 import { getApiAction } from "../store/action";
-import Items from "./Items";
-import { useRef, useState } from "react";
-import img from "../assets/RecipeImage.png";
 import img2 from "../assets/image.png";
 
 function Dashboard(props) {
   const location = useLocation();
 
-  const [searchVal, setSearchVal] = useState("");
-
   const { getApi, data, isLoading, error, cartCount } = props;
+  console.log(data, "aaaaa");
+  data.forEach((e) => {
+    console.log(e.mealType, "bbbbb");
+  });
+  console.log("hi", "bbbbb");
   return (
     <Box sx={{ width: "100%", position: "fixed", zIndex: "2", top: "0" }}>
       <AppBar
@@ -94,7 +84,8 @@ function Dashboard(props) {
           </Link>
           {(location.pathname === "/list" ||
             location.pathname === "/cart" ||
-            location.pathname === "/" || location.pathname.includes("/dashboard/")) && (
+            location.pathname === "/" ||
+            location.pathname.includes("/dashboard/")) && (
             <Link
               to="/list"
               sx={{

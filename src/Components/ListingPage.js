@@ -2,16 +2,27 @@ import Items from "./Items";
 import { getApiAction } from "../store/action";
 import { connect, useDispatch } from "react-redux";
 import { Box, TextField } from "@mui/material";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
+import Filter from "./Filter";
+import ListingCard from "./Shimmer/ListingCard.js";
 
 const ListingPage = (props) => {
   const dispatch = useDispatch();
   const { data, isLoading, error } = props;
   const [searchVal, setSearchVal] = useState("");
+  const [filteredList, setFilteredList] = useState(data);
 
   useEffect(() => {
     dispatch(getApiAction());
   }, []);
+
+  useEffect(() => {
+    setFilteredList(data);
+  }, [data]);
+
+  const handleDataFromChild = (data) => {
+    setFilteredList([...data]);
+  };
 
   return (
     <>
@@ -19,8 +30,9 @@ const ListingPage = (props) => {
         sx={{
           height: "60px",
           display: "flex",
-          justifyContent: "center",
-          marginTop: "100px",
+          marginTop: "14vh",
+          justifyContent: "space-evenly",
+          marginBottom: "5vh",
         }}
       >
         <TextField
@@ -35,19 +47,22 @@ const ListingPage = (props) => {
           onChange={(e) => setSearchVal(e.target.value)}
         />
       </Box>
+
+      <Filter data={data} handleDataFromChild={handleDataFromChild} />
       {isLoading ? (
-        <div className="lds-roller">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+        // <div className="lds-roller">
+        //   <div></div>
+        //   <div></div>
+        //   <div></div>
+        //   <div></div>
+        //   <div></div>
+        //   <div></div>
+        //   <div></div>
+        //   <div></div>
+        // </div>
+        <ListingCard />
       ) : (
-        <Items data={data} val={searchVal} />
+        <Items data={filteredList} val={searchVal} />
       )}
       {error}
     </>
