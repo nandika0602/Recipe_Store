@@ -11,6 +11,7 @@ const ListingPage = (props) => {
   const { data, isLoading, error } = props;
   const [searchVal, setSearchVal] = useState("");
   const [filteredList, setFilteredList] = useState(data);
+  const [filterVal, setFilterVal] = useState("");
 
   useEffect(() => {
     dispatch(getApiAction());
@@ -20,8 +21,9 @@ const ListingPage = (props) => {
     setFilteredList(data);
   }, [data]);
 
-  const handleDataFromChild = (data) => {
+  const handleDataFromChild = (data, filterValue) => {
     setFilteredList([...data]);
+    setFilterVal(filterValue);
   };
 
   return (
@@ -48,11 +50,11 @@ const ListingPage = (props) => {
         />
       </Box>
 
-      <Filter data={data} handleDataFromChild={handleDataFromChild} />
+      <Filter data={data} handleDataFromChild={handleDataFromChild} setSearchVal={setSearchVal}/>
       {isLoading ? (
         <ListingCard />
       ) : (
-        <Items data={filteredList} val={searchVal} />
+        <Items data={filteredList} val={searchVal} filterVal={filterVal} />
       )}
       {error}
     </>

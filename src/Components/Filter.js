@@ -6,9 +6,9 @@ import FilterImg from "../assets/FilterImg.png";
 
 const Filter = (props) => {
   const [val, setVal] = useState("");
-  const { data, handleDataFromChild } = props;
+  const { data, handleDataFromChild, setSearchVal } = props;
   const arr = [];
-  data.forEach((e) => {
+  data?.forEach((e) => {
     arr.push(...e.mealType);
   });
   const filterArray = [...new Set(arr)];
@@ -21,8 +21,9 @@ const Filter = (props) => {
     let filteredList;
     val !== "reset"
       ? (filteredList = data.filter((list) => list.mealType.includes(val)))
-      : (filteredList = [...data]);
-    handleDataFromChild(filteredList);
+      : (filteredList = [...data]),
+      setSearchVal("");
+    handleDataFromChild(filteredList, val);
   }, [val]);
 
   return (
@@ -51,7 +52,7 @@ const Filter = (props) => {
               <div>
                 <ToggleButton
                   style={{
-                    backgroundColor: "green",
+                    backgroundColor: list === val ? "blue" : "green",
                     marginRight: "10px",
                     minWidth: "100px",
                     color: "white",
