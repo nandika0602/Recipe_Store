@@ -7,7 +7,6 @@ import FilterImg from "../assets/FilterImg.png";
 const Filter = (props) => {
   const [val, setVal] = useState("");
   const { data, handleDataFromChild } = props;
-  let filteredList;
   const arr = [];
   data.forEach((e) => {
     arr.push(...e.mealType);
@@ -17,12 +16,15 @@ const Filter = (props) => {
   const handleChange = (e) => {
     setVal(e.target.value);
   };
+
   useEffect(() => {
-    val != "reset"
+    let filteredList;
+    val !== "reset"
       ? (filteredList = data.filter((list) => list.mealType.includes(val)))
       : (filteredList = [...data]);
     handleDataFromChild(filteredList);
   }, [val]);
+
   return (
     <div
       style={{
@@ -82,9 +84,8 @@ const Filter = (props) => {
           style={{
             maxHeight: "60px",
           }}
-          // https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuPmA3IXXMrPtT5oY2P6wAKXx7fdvWYwDY7ori8vj3t_jsr7UCkwtdKZapUPr_2Ga6o-M&usqp=CAU
-          //
           src={FilterImg}
+          alt="Filter"
         ></img>
       </ToggleButtonGroup>
     </div>

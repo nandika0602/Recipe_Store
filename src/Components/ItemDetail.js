@@ -6,13 +6,10 @@ import {
   CardMedia,
   Button,
 } from "@mui/material";
-import { useState } from "react";
 import { connect } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 
 const ItemDetail = ({ detail }) => {
-  const [show, setShow] = useState(true);
-  const [showIns, setShowIns] = useState(true);
   const pathname = useLocation();
   const detail1 = pathname?.state?.detail;
 
@@ -37,7 +34,7 @@ const ItemDetail = ({ detail }) => {
           height="300px"
           width="100px"
           image={detail.image}
-          alt="Paella dish"
+          alt=""
           sx={{
             objectFit: "contain",
           }}
@@ -62,6 +59,7 @@ const ItemDetail = ({ detail }) => {
                 borderRadius: "0%",
                 marginRight: "2px",
               }}
+              alt=""
               src={img}
             ></img>{" "}
             {detail.rating}
@@ -101,16 +99,14 @@ const ItemDetail = ({ detail }) => {
         </h1>
         {detail?.ingredients?.map((ing, i) => {
           return (
-            show === true && (
-              <Typography
-                key={i}
-                style={{
-                  lineHeight: 1.7,
-                }}
-              >
-                {i + 1}. {ing}{" "}
-              </Typography>
-            )
+            <Typography
+              key={i}
+              style={{
+                lineHeight: 1.7,
+              }}
+            >
+              {i + 1}. {ing}{" "}
+            </Typography>
           );
         })}
       </div>
@@ -129,18 +125,16 @@ const ItemDetail = ({ detail }) => {
         >
           {detail?.instructions?.map((e, i) => {
             return (
-              showIns === true && (
-                <li
-                  key={i}
-                  style={{
-                    listStyleType: "square",
-                    lineHeight: 1.5,
-                    fontSize: "18px",
-                  }}
-                >
-                  {e}
-                </li>
-              )
+              <li
+                key={i}
+                style={{
+                  listStyleType: "square",
+                  lineHeight: 1.5,
+                  fontSize: "18px",
+                }}
+              >
+                {e}
+              </li>
             );
           })}
         </ul>

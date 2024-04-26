@@ -50,16 +50,6 @@ const ListingPage = (props) => {
 
       <Filter data={data} handleDataFromChild={handleDataFromChild} />
       {isLoading ? (
-        // <div className="lds-roller">
-        //   <div></div>
-        //   <div></div>
-        //   <div></div>
-        //   <div></div>
-        //   <div></div>
-        //   <div></div>
-        //   <div></div>
-        //   <div></div>
-        // </div>
         <ListingCard />
       ) : (
         <Items data={filteredList} val={searchVal} />

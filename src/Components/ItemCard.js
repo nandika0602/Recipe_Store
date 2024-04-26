@@ -26,7 +26,7 @@ const ItemCard = ({ list, getDetail, addToCart }) => {
               height="300"
               width="100px"
               image={list.image}
-              alt="Paella dish"
+              alt="item"
               onClick={() => getDetail(list.id)}
             />
           </Link>
@@ -34,7 +34,6 @@ const ItemCard = ({ list, getDetail, addToCart }) => {
             <Typography
               sx={{
                 fontWeight: "bold",
-                // color: "#005A9C"
               }}
             >
               {list.name.toUpperCase()}
@@ -54,6 +53,7 @@ const ItemCard = ({ list, getDetail, addToCart }) => {
                   borderRadius: "0%",
                   marginRight: "2px",
                 }}
+                alt={"rating"}
                 src={img}
               ></img>
               {list.rating}{" "}

@@ -23,7 +23,16 @@ const Cart = ({ cart, removeFromCart }) => {
           marginTop: "100px",
         }}
       >
-        {cart.length ? "CART ITEMS" : "NO ITEMS ADDED TO CART"}
+        <span>RECIPE CART - </span>
+        <span>
+          {`${
+            cart.length
+              ? `${cart.length} ${
+                  cart.length === 1 ? "RECIPE" : "RECIPES"
+                } ADDED TO CART`
+              : "NO ITEMS ADDED TO CART"
+          }`}
+        </span>
       </Typography>
       <Stack direction={"row"} className="cart_card">
         {cart.length ? (

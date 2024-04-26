@@ -2,36 +2,22 @@ import { AppBar, Box, Toolbar, Typography, Button, Badge } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 import { getApiAction } from "../store/action";
-import img2 from "../assets/image.png";
+import logo from "../assets/image.png";
 
 function Dashboard(props) {
   const location = useLocation();
 
-  const { getApi, data, isLoading, error, cartCount } = props;
-  console.log(data, "aaaaa");
-  data.forEach((e) => {
-    console.log(e.mealType, "bbbbb");
-  });
-  console.log("hi", "bbbbb");
+  const { getApi, cartCount } = props;
+
   return (
     <Box sx={{ width: "100%", position: "fixed", zIndex: "2", top: "0" }}>
       <AppBar
         position="static"
         sx={{
-          // navbar
-          // backgroundColor: "#D3D3D3",
           backgroundColor: "white",
         }}
       >
         <Toolbar>
-          {/* <IconButton
-            size="large"
-            color="black"
-            aria-label="menu"
-            sx={{ mr: 2, fontSize: "80px" }}
-          >
-            <MenuIcon sx={{ fontSize: "40px" }} />
-          </IconButton> */}
           <Typography
             variant="h6"
             component="div"
@@ -42,18 +28,11 @@ function Dashboard(props) {
               fontSize: "30px",
             }}
           >
-            {/* RECIPE STORE */}
-
             <img
-              // src={
-              //   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGZuSWJR9ZcAZG6bIzssloajYpeQXWTQBY2rB5rensswAGmQYKCZfFWvN3cnOWhQqzmIY&usqp=CAU"
-              // }
-              src={img2}
+              src={logo}
               style={{
-                // borderRadius: "50%",
                 marginTop: "1vh",
                 maxHeight: "80vh",
-                // border: "3px solid brown",
               }}
               alt=""
               height={"80px"}
@@ -135,21 +114,6 @@ function Dashboard(props) {
           </Link>
         </Toolbar>
       </AppBar>
-      {/* {isLoading ? (
-        <div className="lds-roller">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      ) : (
-        <Items data={data} val={searchVal}/>
-      )}
-      {error} */}
     </Box>
   );
 }

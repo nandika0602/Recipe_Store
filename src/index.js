@@ -9,7 +9,7 @@ import { Provider } from "react-redux";
 import ItemDetail from "./Components/ItemDetail";
 import Cart from "./Components/Cart";
 import ListingPage from "./Components/ListingPage";
-import AA from "./Components/aa";
+import Home from "./Components/Home";
 
 const appRouter = createBrowserRouter([
   {
@@ -22,7 +22,7 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <AA />,
+        element: <Home />,
       },
       {
         path: "cart",

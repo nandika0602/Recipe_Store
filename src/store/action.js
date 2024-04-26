@@ -61,11 +61,9 @@ export const getDetailApiAction = (id) => {
 };
 
 export const addToCart = (list) => {
-  // alert("Successfully added to cart");
   return { type: ADD_TO_CART, payload: list };
 };
 
 export const removeCart = (id) => {
-  // console.log(id);
   return { type: REMOVE_CART, payload: id };
 };
